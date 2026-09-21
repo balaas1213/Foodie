@@ -1,0 +1,163 @@
+/* ==========================================================================
+   FOODIE - responsive.css
+   Media queries for tablet and mobile breakpoints across the whole app.
+   Breakpoints: <=1024px (tablet), <=768px (small tablet/large phone),
+   <=480px (phone).
+   ========================================================================== */
+
+/* ============ TABLET (<=1024px) ============ */
+@media (max-width: 1024px) {
+  .hero__title { font-size: 2.5rem; }
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__visual { order: -1; max-width: 340px; margin: 0 auto; }
+  .hero__stats { flex-wrap: wrap; gap: 24px; }
+
+  .category-grid { grid-template-columns: repeat(5, 1fr); }
+  .restaurant-grid { grid-template-columns: repeat(3, 1fr); }
+  .offers-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .restaurants-layout { grid-template-columns: 1fr; }
+  .filters-panel {
+    position: fixed;
+    top: 0; right: -320px;
+    width: 300px;
+    height: 100vh;
+    z-index: 200;
+    border-radius: 0;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+  }
+  .filters-panel--open { right: 0; }
+  .filters-panel__header { display: flex; }
+  .filter-toggle { display: inline-flex; }
+
+  .menu-layout { grid-template-columns: 1fr; }
+  .menu-categories {
+    position: sticky; top: 76px;
+    flex-direction: row;
+    overflow-x: auto;
+    background: var(--color-bg);
+    padding: 10px 0;
+    z-index: 10;
+    gap: 8px;
+  }
+  .menu-categories button { white-space: nowrap; }
+
+  .cart-layout { grid-template-columns: 1fr; }
+  .order-summary { position: static; }
+
+  .checkout-layout { grid-template-columns: 1fr; }
+  #checkoutSummary { position: static; order: -1; }
+
+  .profile-layout { grid-template-columns: 1fr; }
+  .profile-card { position: static; }
+  .favorite-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+
+/* ============ SMALL TABLET / LARGE PHONE (<=768px) ============ */
+@media (max-width: 768px) {
+  .container { padding: 0 18px; }
+
+  /* Navbar */
+  .navbar__inner { height: 68px; }
+  .navbar__toggle { display: flex; }
+  .navbar__menu {
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 99;
+  }
+  .navbar__menu--open { max-height: 300px; }
+  .navbar__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 24px 16px;
+  }
+  .navbar__links li { width: 100%; }
+  .navbar__links a { display: block; padding: 12px 0; width: 100%; }
+  .navbar__actions .auth-link span { display: none; }
+  .navbar__actions .auth-link { padding: 10px; }
+
+  /* Hero */
+  .hero { padding: 32px 0 24px; }
+  .hero__title { font-size: 2rem; }
+  .hero__search { flex-direction: column; align-items: stretch; border-radius: var(--radius-md); }
+  .hero__search-divider { display: none; }
+  .hero__search-btn { margin: 4px; }
+  .hero__float { display: none; }
+  .hero__image-wrap { max-width: 260px; }
+
+  .section { padding: 40px 0; }
+  .section__title { font-size: 1.5rem; }
+  .section__header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  .category-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .restaurant-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .offers-grid { grid-template-columns: 1fr; }
+
+  .restaurants-toolbar { flex-direction: column; align-items: stretch; }
+  .restaurants-sort select { width: 100%; }
+
+  .cta { padding: 50px 0; }
+  .cta h2 { font-size: 1.6rem; }
+
+  .footer__grid { grid-template-columns: 1fr; gap: 28px; text-align: left; }
+  .footer__bottom { flex-direction: column; text-align: center; }
+
+  /* Restaurant menu page */
+  .restaurant-hero__cover { height: 180px; margin: 0 18px; border-radius: var(--radius-md); }
+  .restaurant-info-card { margin: -40px 18px 0; padding: 20px; }
+  .restaurant-info-card h1 { font-size: 1.35rem; }
+  .food-card { flex-direction: row-reverse; }
+  .food-card__image-wrap { width: 110px; }
+  .food-card__image-wrap img { width: 110px; height: 90px; }
+
+  /* Cart */
+  .cart-item { flex-wrap: wrap; }
+  .cart-item__controls { width: 100%; justify-content: space-between; margin-top: 10px; }
+  .coupon-box { flex-direction: column; }
+  .coupon-box .btn { width: 100%; }
+
+  /* Checkout */
+  .form-row { grid-template-columns: 1fr; }
+  .checkout-card { padding: 20px; }
+
+  .favorite-grid { grid-template-columns: 1fr; }
+
+  .success-actions { flex-direction: column; }
+  .tracking-step span { font-size: 0.66rem; }
+}
+
+/* ============ PHONE (<=480px) ============ */
+@media (max-width: 480px) {
+  .hero__title { font-size: 1.7rem; }
+  .hero__badge { font-size: 0.78rem; }
+  .hero__stats { gap: 16px; }
+  .hero__stats strong { font-size: 1.15rem; }
+
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .restaurant-grid { grid-template-columns: 1fr; }
+
+  .auth-card { padding: 28px 22px; }
+
+  .navbar__brand { font-size: 1.25rem; }
+  .navbar__brand .brand-mark { width: 32px; height: 32px; font-size: 0.95rem; }
+
+  .order-card__row, .order-history-card__bottom { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .order-history-card__bottom { align-items: center; flex-direction: row; }
+}
+
+/* ============ Touch-friendly tap targets ============ */
+@media (max-width: 768px) {
+  .btn, .icon-btn, .category-card, .navbar__links a {
+    min-height: 42px;
+  }
+}

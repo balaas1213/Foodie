@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Cart | Foodie</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/cart.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__brand">
+      <span class="brand-mark"><i class="fa-solid fa-utensils"></i></span>
+      FOOD<span>IE</span>
+    </a>
+    <nav class="navbar__menu" id="navbarMenu">
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="restaurants.html">Restaurants</a></li>
+        <li><a href="index.html#offers">Offers</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </nav>
+    <div class="navbar__actions">
+      <a href="restaurants.html" class="icon-btn" aria-label="Search restaurants and food">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+      <a href="login.html" class="auth-link" data-auth-link>
+        <i class="fa-solid fa-circle-user"></i><span>Login</span>
+      </a>
+      <a href="cart.html" class="icon-btn" aria-label="View cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" data-cart-count>0</span>
+      </a>
+      <button class="navbar__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container page-header">
+    <h1>Your Cart</h1>
+    <p id="cartSubHeading">Review your items before checkout.</p>
+  </div>
+
+  <div class="container cart-layout" id="cartLayout">
+    <section class="cart-items" id="cartItemsSection"></section>
+
+    <aside class="order-summary" id="orderSummary">
+      <h3>Order Summary</h3>
+
+      <div class="coupon-box">
+        <input type="text" id="couponInput" placeholder="Enter coupon code" class="form-control" />
+        <button class="btn btn--secondary" id="applyCouponBtn">Apply Coupon</button>
+      </div>
+      <p class="coupon-message" id="couponMessage"></p>
+
+      <div class="summary-row">
+        <span>Item Total</span>
+        <span id="itemTotal">₹0</span>
+      </div>
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+        <span id="deliveryFee">₹0</span>
+      </div>
+      <div class="summary-row">
+        <span>Platform Fee</span>
+        <span id="platformFee">₹0</span>
+      </div>
+      <div class="summary-row summary-row--discount" id="discountRow" style="display:none;">
+        <span>Discount</span>
+        <span id="discountAmount">−₹0</span>
+      </div>
+      <div class="summary-row">
+        <span>Tax (GST 5%)</span>
+        <span id="taxAmount">₹0</span>
+      </div>
+      <div class="summary-row summary-row--total">
+        <span>Grand Total</span>
+        <span id="grandTotal">₹0</span>
+      </div>
+
+      <a href="checkout.html" class="btn btn--primary btn--block" id="checkoutBtn">Proceed to Checkout</a>
+    </aside>
+  </div>
+
+  <div class="empty-state" id="emptyCartState" style="display:none;">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <h3>Your cart is empty.</h3>
+    <p>Looks like you haven't added anything to your cart yet.</p>
+    <a href="restaurants.html" class="btn btn--primary">Explore Restaurants</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom" style="border-top:none; padding-top:0;">
+      <p>&copy; <span data-year></span> Foodie. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>
